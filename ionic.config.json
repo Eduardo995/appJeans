@@ -1,0 +1,7 @@
+{
+  "name": "appJeans",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
