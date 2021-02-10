@@ -1,16 +1,13 @@
+import { MenuPrincipalComponent } from './Vistas/menu-principal/menu-principal.component';
+import { LoginComponent } from './Vistas/login/login.component';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
+  {path:'login', component:LoginComponent},
+  {path:'menuPrincipal', component:MenuPrincipalComponent},
+  {path:'',pathMatch:'full',redirectTo:'login'},
+  {path:'**',pathMatch:'full',redirectTo:'login'},
 ];
 
 @NgModule({
