@@ -13,7 +13,22 @@
       "icon":"skull",
       "name":"Listado Empleados 2",
       "redirectTo":"/reporteEmpleados"
-  }
+  },
+  {
+    "icon":"skull",
+    "name":"Listado Empleados 2",
+    "redirectTo":"/componente"
+},
+{
+  "icon":"skull",
+  "name":"Listado Empleados 2",
+  "redirectTo":"/componente"
+},
+{
+  "icon":"skull",
+  "name":"Listado Empleados 2",
+  "redirectTo":"/componente"
+}
 
 
 ]

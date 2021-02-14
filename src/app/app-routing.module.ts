@@ -2,7 +2,7 @@ import { Componente2Component } from './Vistas/componente2/componente2.component
 import { ReporteEmpleadosPage } from './Vistas/reporte-empleados/reporte-empleados.page';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { LoginPage } from './Vistas/login/login.page';
+
 import { MenuPrincipalPage } from './Vistas/menu-principal/menu-principal.page';
 import { ComponenteComponent } from './Vistas/componente/componente.component';
 
@@ -15,14 +15,7 @@ const routes: Routes = [
   {path:'componente', component:ComponenteComponent},
   {path:'componente2', component:Componente2Component},
   {path:'menuPrincipal', component:MenuPrincipalPage },
-  // {path:'login', component:LoginPage}
 
-
-
-
-
-  // {path:'',pathMatch:'full',redirectTo:'login'},
-  // {path:'**',pathMatch:'full',redirectTo:'login'},
 
 
 
