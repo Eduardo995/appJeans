@@ -1,0 +1,19 @@
+[
+    {
+        "icon":"beaker",
+        "name":"Empleados",
+        "redirectTo":"/componente2"
+    },
+    {
+        "icon":"skull",
+        "name":"Listado Empleados 2",
+        "redirectTo":"/componente"
+    },
+    {
+      "icon":"skull",
+      "name":"Listado Empleados 2",
+      "redirectTo":"/reporteEmpleados"
+  }
+
+
+]

@@ -1,3 +1,44 @@
-<ion-app>
+<!-- <ion-content class="bg-gradient"> -->
+
+<app-menu *ngIf="numero!=0"> </app-menu>
+
+
+<ion-content class="bg-gradient">
+
   <ion-router-outlet></ion-router-outlet>
-</ion-app>
+
+
+  <div class="pt-7" *ngIf="numero==0">
+    <ion-img class="imagen mr-auto ml-auto mt-1em" src="../../../assets/icon/logo1.png"></ion-img>
+
+
+
+    <div class="inputs w-75 ml-auto mr-auto">
+
+      <ion-item class="form-control">
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+
+
+      <ion-item class="form-control mt-0">
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password"></ion-input>
+      </ion-item>
+
+
+      <div class="mt-2 text-center">
+
+        <ion-button (click)="ingresar()" size="medium" class="btn-dark shadow">Ingresar</ion-button>
+
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+</ion-content>

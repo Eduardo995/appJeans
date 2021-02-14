@@ -1,13 +1,33 @@
-import { MenuPrincipalComponent } from './Vistas/menu-principal/menu-principal.component';
-import { LoginComponent } from './Vistas/login/login.component';
+import { Componente2Component } from './Vistas/componente2/componente2.component';
+import { ReporteEmpleadosPage } from './Vistas/reporte-empleados/reporte-empleados.page';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { LoginPage } from './Vistas/login/login.page';
+import { MenuPrincipalPage } from './Vistas/menu-principal/menu-principal.page';
+import { ComponenteComponent } from './Vistas/componente/componente.component';
+
 
 const routes: Routes = [
-  {path:'login', component:LoginComponent},
-  {path:'menuPrincipal', component:MenuPrincipalComponent},
-  {path:'',pathMatch:'full',redirectTo:'login'},
-  {path:'**',pathMatch:'full',redirectTo:'login'},
+
+
+
+  {path:'reporteEmpleados', component:ReporteEmpleadosPage},
+  {path:'componente', component:ComponenteComponent},
+  {path:'componente2', component:Componente2Component},
+  {path:'menuPrincipal', component:MenuPrincipalPage },
+  // {path:'login', component:LoginPage}
+
+
+
+
+
+  // {path:'',pathMatch:'full',redirectTo:'login'},
+  // {path:'**',pathMatch:'full',redirectTo:'login'},
+
+
+
+
+
 ];
 
 @NgModule({
