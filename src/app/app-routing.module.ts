@@ -1,20 +1,25 @@
-import { Componente2Component } from './Vistas/componente2/componente2.component';
-import { ReporteEmpleadosPage } from './Vistas/reporte-empleados/reporte-empleados.page';
+import { ReporteClientesComponent } from './Vistas/reporte-clientes/reporte-clientes.component';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { MenuInicioComponent } from './Vistas/menu-inicio/menu-inicio.component';
+import { ReporteEmpleadosComponent } from './Vistas/reporte-empleados/reporte-empleados.component';
+import { ReporteProductoComponent } from './Vistas/reporte-producto/reporte-producto.component';
+import { ReporteFacturaVentaComponent } from './Vistas/reporte-factura-venta/reporte-factura-venta.component';
+import { ReporteFacturaCompraComponent } from './Vistas/reporte-factura-compra/reporte-factura-compra.component';
 
-import { MenuPrincipalPage } from './Vistas/menu-principal/menu-principal.page';
-import { ComponenteComponent } from './Vistas/componente/componente.component';
 
 
 const routes: Routes = [
 
 
 
-  {path:'reporteEmpleados', component:ReporteEmpleadosPage},
-  {path:'componente', component:ComponenteComponent},
-  {path:'componente2', component:Componente2Component},
-  {path:'menuPrincipal', component:MenuPrincipalPage },
+  {path:'menuInicio', component:MenuInicioComponent},
+  {path:'reporteClientes', component:ReporteClientesComponent},
+  {path:'reporteEmpleados', component:ReporteEmpleadosComponent },
+  {path:'reporteProductos', component:ReporteProductoComponent},
+  {path:'facturaVentas', component:ReporteFacturaVentaComponent},
+  {path:'facturaCompras', component:ReporteFacturaCompraComponent},
+
 
 
 

@@ -1,0 +1,157 @@
+<ion-header>
+  <ion-toolbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!--ENCABEZADO AQUÍ ESTA CELESTE Y MUESTRA EL SELECCIONAR SUCURSAL CAMBIAR CLIENTES Y CLIENTE-->
+  <ion-card color="secondary">
+    <ion-card-header>
+      <ion-card-title>Listado de Productos</ion-card-title>
+      <ion-card-subtitle>Aquí encontrará sus productos por sucursal</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Seleccione una sucursal</ion-label>
+        <ion-select [(ngModel)]="cmbSucursal" (ionChange)="listarProducto()">
+          <!--AQUI ES EL NGFOR EN EL OPTION CHUCHA-->
+          <ion-select-option *ngFor="let item of objSucursales" value="{{item.idSucursal}}">{{item.nombre}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <!--ESTE ES EL BUSCADOR NO TOCAR-->
+  <ion-item *ngIf="txtBusqueda!='' && total==0 || total>0">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="10">
+          <ion-item class="buscador">
+            <ion-input (keyup.enter)="buscar()" (ionChange)="limpiar()" placeholder="Búsqueda"
+              [(ngModel)]="txtBusqueda"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="2">
+          <ion-button color="secondary" (click)="buscar()" style="margin-top: 1.2em;">
+            <ion-icon name="search"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+
+  <!--MENSAJE DE SELECCIONAR SUCURSAL NO TOCAAR!-->
+  <ion-card *ngIf="objProducto.length==0 && cmbSucursal==''">
+    <ion-item>
+      <ion-label color="secondary">
+        <p style="text-align:center !important">Debe seleccionar una sucursal</p>
+      </ion-label>
+    </ion-item>
+  </ion-card>
+
+
+  <!--MENSAJE DE QUE NO EXISTEN DATOS EN LA SUCURSAL SOLO CAMBIAR LA PALABRA CLIENTES-->
+
+  <ion-card *ngIf="objProducto.length==0 && cmbSucursal!='' && txtBusqueda=='' && cargando==0">
+    <ion-item>
+      <ion-label color="secondary">
+        <p style="text-align:center !important">No existen productos en esa sucursal</p>
+      </ion-label>
+    </ion-item>
+  </ion-card>
+
+
+  <!--MENSAJE DE RESULTADO VACIO DE BUSQUEDA CAMBIAR SOLO LA PALABRA CLIENTES DE TOTAL CLIENTES-->
+  <ion-card *ngIf="objProducto.length==0 && cmbSucursal!='' && txtBusqueda!='' && cargando==0">
+    <ion-item>
+      <ion-label color="secondary">
+        <p style="text-align:center !important">No existen resultados para su búsqueda</p>
+      </ion-label>
+    </ion-item>
+  </ion-card>
+  <ion-item *ngIf="total>0 && cargando==0">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          <ion-label style="font-style: italic;" color="secondary">
+            <small><strong>Total de Productos:</strong></small><small color="dark"> {{total | number : '1.2-2'}}</small>
+          </ion-label>
+        </ion-col>
+        <ion-col size="6">
+          <ion-label style="font-style: italic;" class="text-right" color="success">
+            <small ><strong>Avaluo: </strong></small><small color="dark">$ {{avaluo | number : '1.2-2'}}</small>
+          </ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-item>
+
+
+  <!--NO TOCAR NGIF SOLO TOCAR NGFOR-->
+  <div *ngIf="cargando==0 && cmbSucursal!=''">
+    <ion-card *ngFor="let item of objProducto">
+      <ion-item color="light">
+        <ion-avatar style="margin-right: 1.2em;">
+          <!-- <img src="https://localhost:44396/{{item.imagen}}"
+
+          > -->
+
+          <ion-img src="https://localhost:44396/{{item.imagen}} " (ionError)="errorImagen($event)">
+
+          </ion-img>
+
+        </ion-avatar>
+        <ion-label>{{item.nombre}} {{item.categoria.nombre}} <strong>{{item.talla}}</strong> </ion-label>
+      </ion-item>
+      <ion-card-content>
+        <ion-item>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="2">
+                <ion-label style="font-size:0.7rem !important;"><strong>Pvp:</strong></ion-label>
+              </ion-col>
+              <ion-col>
+                <ion-label style="font-size:0.7rem !important;">
+                  $ {{item.precioUnidad}}
+                </ion-label>
+              </ion-col>
+
+              <ion-col size="2">
+                <ion-label style="font-size:0.7rem !important;"><strong>P.Doc:</strong></ion-label>
+              </ion-col>
+              <ion-col>
+                <ion-label style="font-size:0.7rem !important;">
+                  $ {{item.precioDocena}}
+                </ion-label>
+              </ion-col>
+
+            </ion-row>
+
+
+
+
+
+
+
+
+            <ion-row>
+              <ion-col size="3">
+                <ion-label color="success" style="font-size:1em !important;"><strong>Stock:</strong></ion-label>
+              </ion-col>
+              <ion-col>
+                <ion-label style="font-size:1em !important;">
+                  {{item.stock}}
+                </ion-label>
+              </ion-col>
+
+            </ion-row>
+
+          </ion-grid>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

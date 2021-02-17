@@ -1,34 +1,32 @@
 [
-    {
-        "icon":"beaker",
-        "name":"Empleados",
-        "redirectTo":"/componente2"
-    },
-    {
-        "icon":"skull",
-        "name":"Listado Empleados 2",
-        "redirectTo":"/componente"
-    },
-    {
-      "icon":"skull",
-      "name":"Listado Empleados 2",
-      "redirectTo":"/reporteEmpleados"
-  },
   {
-    "icon":"skull",
-    "name":"Listado Empleados 2",
-    "redirectTo":"/componente"
-},
-{
-  "icon":"skull",
-  "name":"Listado Empleados 2",
-  "redirectTo":"/componente"
-},
-{
-  "icon":"skull",
-  "name":"Listado Empleados 2",
-  "redirectTo":"/componente"
-}
+    "icon": "people",
+    "name": "Clientes",
+    "redirectTo": "/reporteClientes"
+  },
 
+  {
+    "icon": "people-outline",
+    "name": "Empleados",
+    "redirectTo": "/reporteEmpleados"
+  },
+
+  {
+    "icon": "bag",
+    "name": "Productos",
+    "redirectTo": "/reporteProductos"
+  },
+
+  {
+    "icon": "newspaper-outline",
+    "name": "Factura Compras",
+    "redirectTo": "/facturaCompras"
+  },
+
+  {
+    "icon": "newspaper",
+    "name": "Factura Ventas",
+    "redirectTo": "/facturaVentas"
+  }
 
 ]

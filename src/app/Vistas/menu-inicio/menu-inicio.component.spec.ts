@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { Componente2Component } from './componente2.component';
+import { MenuInicioComponent } from './menu-inicio.component';
 
-describe('Componente2Component', () => {
-  let component: Componente2Component;
-  let fixture: ComponentFixture<Componente2Component>;
+describe('MenuInicioComponent', () => {
+  let component: MenuInicioComponent;
+  let fixture: ComponentFixture<MenuInicioComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ Componente2Component ],
+      declarations: [ MenuInicioComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(Componente2Component);
+    fixture = TestBed.createComponent(MenuInicioComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

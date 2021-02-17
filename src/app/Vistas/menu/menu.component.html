@@ -22,6 +22,12 @@
 
         </ion-item>
       </ion-menu-toggle>
+      <ion-menu-toggle (click)="cerrarSesion()">
+        <ion-item class="menu"  style=" margin-bottom: 20px;">
+          <ion-icon  slot="start" name="log-out-outline" style="margin-right: 7px;"></ion-icon>
+          <ion-label style="margin-left: 4px;">Salir</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
     </ion-list>
   </ion-content>
 </ion-menu>

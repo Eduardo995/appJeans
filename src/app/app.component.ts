@@ -1,6 +1,8 @@
+import { LoginService } from './Servicios/login.service';
 import { Component } from '@angular/core';
-import { NavigationStart, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
 export let browserRefresh = false;
 @Component({
   selector: 'app-root',
@@ -9,33 +11,24 @@ export let browserRefresh = false;
 })
 export class AppComponent {
   susbscription:Subscription;
-
-
   numero=0;
+  usuario="";
+  contra="";
+  objLogin:any=[];
+
+
   constructor(
     private router:Router,
-
-
+    private login:LoginService,
+    private toastController: ToastController
     ) {
 
-
-
-      this.numero=parseInt(localStorage.getItem('sesion'));
-
-
-      if(localStorage.getItem('sesion')== null)
-      {
-         this.numero=0;
-      }
-
-
-      if(this.numero == 1)
-      {
-
-        this.router.navigate(['/componente']);
-      }
-      else
-      {
+      if(localStorage.length>0){
+        this.objLogin=localStorage;
+        this.router.navigate(['/menuInicio']);
+      }else{
+        console.log("rdireccionar Login");
+        this.objLogin=[];
         this.router.navigate(['/']);
       }
 
@@ -54,10 +47,16 @@ export class AppComponent {
       //   }
       // });
 
+  }
 
 
-
-
+  async toast(mensaje:string) {
+    const toast = await this.toastController.create({
+      message:mensaje,
+      duration: 2000,
+      position:'top'
+    });
+    toast.present();
   }
 
 
@@ -65,13 +64,29 @@ export class AppComponent {
 
   ingresar() {
 
-
-    this.numero=1;
-    localStorage.setItem('sesion',this.numero.toString())
-    this.router.navigate(['/componente'])
-
+  this.login.login(this.usuario,this.contra).subscribe(res=>
+    {
+      this.objLogin=res;
+       if(this.objLogin.length == 0)
+       {
+         this.toast("Usuario o Contraseña Incorrecto Vuelva a intentarlo");
+         this.objLogin=[];
+       }
+       else{
+        let nombres=  this.objLogin.nombre + this.objLogin.apellido;
+        localStorage.setItem('nombres',nombres);
+        localStorage.setItem('sucursal',this.objLogin.idSucursal);
+        this.objLogin=localStorage;
+        this.usuario="";
+        this.contra="";
+        this.router.navigate(['/menuInicio']);
+       }
+    },error=> console.log(error));
 
 
 
   }
+
+
+
 }
