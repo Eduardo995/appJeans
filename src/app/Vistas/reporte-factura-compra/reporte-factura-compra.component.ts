@@ -64,6 +64,7 @@ export class ReporteFacturaCompraComponent implements OnInit {
 
   async buscar()
   {
+   
 
     if(this.desde=="" || this.hasta==""){
       this.toast("Seleccione un rango de fecha");
@@ -80,7 +81,7 @@ export class ReporteFacturaCompraComponent implements OnInit {
 
     await this.verLoader();
 
-    this.ReporteCompra.listarVenta(this.sesion,f1[0],f2[0]).subscribe((res:any)=>
+    this.ReporteCompra.listarVenta(this.cmbSucursal,f1[0],f2[0]).subscribe((res:any)=>
       {
       
        this.numero=0;

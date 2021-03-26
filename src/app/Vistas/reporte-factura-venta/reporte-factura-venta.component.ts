@@ -82,7 +82,7 @@ export class ReporteFacturaVentaComponent implements OnInit {
 
     await this.verLoader();
 
-    this.ReporteVenta.listarVenta(this.sesion,f1[0],f2[0]).subscribe((res:any)=>
+    this.ReporteVenta.listarVenta(this.cmbSucursal,f1[0],f2[0]).subscribe((res:any)=>
       {
 
      this.contador=0;
